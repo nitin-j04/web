@@ -1,0 +1,144 @@
+body{
+    margin:0;
+    padding:0;
+   align-content: center;
+}
+
+.outer{
+    display: flex;
+flex-direction: column;
+     /* justify-content: center; */
+    /* align-items: center; */
+    border: 2px solid black;
+    height:100vh;
+}
+
+
+#navBar{
+    display: flex;
+    /* width:100%; */
+    align-items: center;
+    position: sticky;
+    top:0px;
+    /* justify-content: center; */
+}
+#navBar::before{
+    content:"";
+    background-color: black;
+    position: absolute;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity: 0.4;
+}
+
+#navBar ul{
+    display: flex;
+   /* width: 100%; */
+}
+#navBar ul li{
+    list-style: none;
+    font-size: 1.4rem;
+    display: block;
+}
+#navBar ul li a{
+    color:white;
+    display:block;
+    padding:10px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+#navBar ul li a:hover{
+    color:black;
+    background-color: white;
+}
+
+
+/* navigationbar : logo and image  */
+#logo{
+    margin: 10px 21px;
+
+}
+#logo img{
+    height: 74px;
+    margin: -1px 4px;
+    border-radius: 3rem;;
+}
+
+
+.container{
+
+    border:2px solid red;
+    width:50%;
+    height:auto;
+    margin:auto ;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   /* top:50%; */
+
+}
+
+.container ul {
+    list-style: none;
+    font-size: 1.4rem;
+    width: 100%;
+    margin-left: -2vw;
+    
+}
+.container ul li{
+    margin: 0vw 0vw 0vw 0vw;
+   
+}
+.container ul li :hover{
+    cursor: pointer;
+    background-color: rgb(81, 146, 202);
+    opacity: .5;
+    color:white ;
+    
+}
+.container ul li a{
+    /* width: 100%; */
+    display: inline-block;
+    width:10vw;
+}
+.container ul li a{
+    text-decoration: none;
+    color: black;
+    /* width: 60%; */
+    padding: .3rem 3rem .3rem 3rem;
+}
+
+.container button{
+    margin-right: -45vw;
+    font-size: 1.2rem;
+    padding: .3rem .7rem .3rem .7rem;
+    border-radius: 20%;
+
+    /* display: inline; */
+}
+#add_item{
+    /* display: inline; */
+    margin: 0px -28vw -2vw 0;
+    padding: .3rem;
+    width:10vw;
+}
+
+
+footer{
+    background-color: black;
+    color:white;
+    text-align: center;
+}
+
+/* icons */
+
+
+/* .icon1{
+    margin:0vw 0vw 0vw 0vw;
+}
+.container li a{
+    /* width:20vw; */
+/* } */ 
