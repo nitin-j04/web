@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="foodorder.css">
 </head>
 <body>
+    <div id="outer">
+
+          <div id="log-form">
+            <form >
+            <label for="email">Enter your email</label>
+            <input type="email" name="email" placeholder="abc@gmail.com" required id="email_login">
+            <label for="pwd">Enter password</label>
+            <input type="password" name="pwd" placeholder="Enter your password" required id="pass_login">
+            <a href="#" onclick="submitForm()">Submit</a>
+            <a href="#" onclick="closeForm()">Close</a>
+            {{!-- <a href="#" onclick="closeForm()">Close</a><a href="#" onclick="submitForm()">Submit</a> --}}
+            </form>
+           </div>
+           <div id="register">
+               <label for="reg_email">Enter your email to register</label>
+               <input type="email" placeholder="Enter yout email" id="email">
+               <label for="pwd">Enter password</label>
+               <input type="password" name="pwd" placeholder="Enter password" id="pass">
+               <label for="confirm_pwd">confirm password</label>
+               <input type="password" name="confirm_pwd" placeholder="Confirm Password" id="cpass">
+               <a href="#" onclick="closeForm()">Close</a>
+               <a href="#" onclick="submit_register()">Submit</a>
+
+           </div>
+    </div>
+    
+  
     <nav id="navBar">
         <div class="" id="logo">
             <img src="food-logo.jpg" alt="onlineorder.com">
@@ -18,8 +45,13 @@
             <li class="item"><a href="#services-container">Services</a></li>
             <li class="item"><a href="#clients">Our Clients</a></li>
             <li class="item"><a href="#contact">Contact Us</a></li>
-            <li class="item" id="menu"><a href="#">Menu</a></li>
+            <li class="item" id="menu"><a href="menu">Menu</a></li>
         </ul>
+        <div id="log">
+           <a href="#" onclick="displayForm()" id="login_button">LogIn</a>
+           <a href="#" onclick="displayRegister()" id="register_button">Register</a>
+           <a href="#" onclick="logout()" id="logout_button" style="display: none;">Logout</a>
+        </div>
     </nav>
     <section id="home">
         <h1 class="h-primary">Welcome to my online Meal</h1>
@@ -31,19 +63,19 @@
         <h1 class="h-primary">Our Services</h1>
         <div id="services">
             <div class="box">
-                <img src="images1.jpg" alt="">
+                <img src="indian-food-catering.jpg" alt="">
                 <h2 class="h-secondary">Food Catering</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p>
+                {{!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p> --}}
             </div>
             <div class="box">
-                <img src="" alt="">
-                <h2 class="h-secondary">Bulk Oredering</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p>
+                <img src="bulk.png" alt="">
+                <h2 class="h-secondary">Bulk Ordering</h2>
+                {{!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p> --}}
             </div>
             <div class="box">
-                <img src="images1.jpg" alt="">
-                <h2 class="h-secondary">Food Oredering</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p>
+                <img src="foor_ordering.png" alt="">
+                <h2 class="h-secondary">Food Ordering</h2>
+                {{!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum, ducimus nostrum nulla omnis natus eum deleniti, mollitia totam incidunt, tenetur nesciunt impedit!</p> --}}
             </div>
             
         </div>
@@ -53,16 +85,16 @@
         <h1 class="h-primary">Our Clients</h1>
         <div id="clients">
             <div class="client-item">
-                <img src="images1.jpg" alt="">
+                <img src="hcl.webp" alt="">
             </div>
             <div class="client-item">
-                <img src="images1.jpg" alt="">
+                <img src="maruti.jpg" alt="">
             </div>
             <div class="client-item">
-                <img src="images1.jpg" alt="">
+                <img src="tvs.png" alt="">
             </div>
             <div class="client-item">
-                <img src="images1.jpg" alt="">
+                <img src="tata.jpg" alt="">
             </div>
         </div>
     </section>
@@ -72,15 +104,15 @@
             <form action="">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your name">
+                    <input type="text" name=""  placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                     <label for="mail">Email:</label>
-                    <input type="email" name="name" id="mail" placeholder="Enter your email">
+                    <input type="email" name="" id="mail" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number:</label>
-                    <input type="text" name="phone" id="name" placeholder="Enter your phone number">
+                    <input type="text" name="phone"  placeholder="Enter your phone number">
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
@@ -95,4 +127,136 @@
         </div>
     </footer>
 </body>
+<script>
+    const displayForm = () => {
+        
+        document.getElementById('outer').style.cssText="z-index:1;opacity : .8; background-color:grey";
+
+       const toggle =  document.getElementById("log-form");
+        const register=document.getElementById("register");
+           if(register.style.display=="block")
+           register.style.display="none";
+       if(toggle.style.display=="block") {
+
+           toggle.style.display="none";
+       }else{
+          
+           toggle.style.cssText=` display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center; `;
+       }
+
+    }
+
+     const displayRegister = () => {
+        
+        document.getElementById('outer').style.cssText="z-index:1;opacity : .8; background-color:grey";
+
+          const log_form=document.getElementById("log-form");
+           if(log_form.style.display=="block")
+           {
+                log_form.style.display="none";
+                console.log("hello");
+           }
+
+       const toggle =  document.getElementById("register");
+       if(toggle.style.display=="block") {
+           toggle.style.display="none";
+       }else{
+          
+          
+           toggle.style.cssText=` display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center; `;
+       }
+
+    }
+
+   
+
+
+    const closeForm = ()=> {
+        document.getElementById('outer').style.cssText="z-index:0;";
+        document.getElementById('log-form').style.cssText="display:none;";
+        document.getElementById('register').style.cssText="display:none;";
+
+    }
+
+    const submit_register = async()=> {
+
+        let email = document.getElementById('email').value;
+        let pass = document.getElementById('pass').value;
+        let cpass = document.getElementById('cpass').value;
+
+        if(cpass == pass) {
+
+            
+            const obj = {
+                email: `${email}`,
+                password: `${pass}`
+            };
+
+            const res = await fetch('/register', { method: 'POST', body: JSON.stringify(obj), headers: { 'Content-Type': 'application/json' }});
+            console.log(`log at login ${res}`);
+            if(res.ok)
+            {
+                
+                document.getElementById('outer').style.cssText = "display:none;";
+                document.getElementById('logout_button').style.cssText = "display:block;";
+            }
+        }else{
+            alert('Confirm Password  not matching password!');
+        }
+
+    }
+
+    const submitForm = async()=> {
+
+
+        
+        let email = document.getElementById('email_login').value;
+        let pass = document.getElementById('pass_login').value;
+
+
+        
+        const obj = {
+            email: `${email}`,
+            pass: `${pass}`
+        };
+        console.log("before fetch call for login");
+        const res = await fetch('/login', { method: 'POST', body: JSON.stringify(obj), headers: { 'Content-Type': 'application/json' } });
+        console.log("log at login " );
+        console.log(res);
+        if(res.ok)
+        {
+            console.log("inside res.ok");
+            document.getElementById('log-form').style.cssText="display:none;";
+            document.getElementById('outer').style.cssText="display:none;";
+            document.getElementById('login_button').style.cssText="display:none;";
+            document.getElementById('register_button').style.cssText="display:none;";
+            document.getElementById('register').style.cssText="display:none;";
+            document.getElementById('logout_button').style.cssText="display:block;";
+
+        }else
+        {
+            alert('Invalid login details');
+        }
+    }
+
+    const logout = async()=>{
+        
+        const result = await fetch('/logout', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
+        console.log("logout " + result);
+        if(result)
+        {
+            
+            document.getElementById('login_button').style.cssText = "display:block;";
+            document.getElementById('register_button').style.cssText = "display:block;";
+            document.getElementById('logout_button').style.cssText = "display:none;";
+
+        }
+    }
+</script>
 </html>
