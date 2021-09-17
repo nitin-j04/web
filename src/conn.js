@@ -1,12 +1,12 @@
 const mongoose=require("mongoose");
 
-
+const db = process.env.DB || "mongodb://localhost:27017/foodorder";
   //connection creation
-mongoose.connect("mongodb://localhost:27017/foodorder", { useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true },(err,database) => {
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true },(err,database) => {
     if(err) {
       return console.log(err);
     }
-    db = database;
+  
     console.log("database connected successfully...");
   });
  
