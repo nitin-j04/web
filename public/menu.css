@@ -7,20 +7,23 @@
 *::-webkit-scrollbar {
     display: none;
   }
+  body{
+      width: 100%;
+  }
 
 .outer{
     display: flex;
-flex-direction: column;
+    flex-direction: column;
      /* justify-content: center; */
     /* align-items: center; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height:100vh;
 }
 
 
 #navBar{
     display: flex;
-    /* width:100%; */
+    width:100%;
     align-items: center;
     position: sticky;
     top:0px;
@@ -71,6 +74,14 @@ flex-direction: column;
     color: black;
     border-radius: 60px;
 }
+
+#main_head{
+    background-color: black;
+    color:white;
+    width:40%
+}
+
+
 #place {
     font-size: 2rem;
 }
@@ -120,7 +131,7 @@ flex-direction: column;
 
 .container ul {
     list-style: none;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     width: 100%;
     /* margin-left: -2vw; */
     overflow-y: scroll;
@@ -152,11 +163,14 @@ flex-direction: column;
     padding: .3rem 3rem .3rem 3rem;
 }
 
-#fav{
+#fav {
     height: 256px;
-    width: 572px;
-    /* border:2px solid black; */
- 
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #fav ul{
     height:80%;
@@ -164,12 +178,18 @@ flex-direction: column;
 }
 #fav-items li{
     margin-left: -14.3vw;
+    padding: 1vh;
+}
+
+#fav h1{
+    background-color: black;
+    color:white;
 }
 
 
 .container button{
-    margin-right: -45vw;
-    font-size: 1.2rem;
+    /* margin-right: -45vw; */
+    font-size: 1.4rem;
     padding: .3rem .7rem .3rem .7rem;
     border-radius: 20%;
 
@@ -177,17 +197,34 @@ flex-direction: column;
 }
 #add_item{
     /* display: inline; */
-    margin: 0px -28vw -2vw 0;
-    padding: .3rem;
-    width:10vw;
+    /* margin: 0px -28vw -2vw 0; */
+    padding: .7rem;
+    width:30vw;
+    font-size: 1.3rem;
+    border-radius: .5rem;
 }
 
 
 footer{
     background-color: black;
     color:white;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    font-size: 1.5rem;
 }
+
+#place_order{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
 
 /* icons */
 

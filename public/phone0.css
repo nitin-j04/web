@@ -1,40 +1,30 @@
 /* navigation */
 
 #navBar{
-    flex-direction: column;
-   
+    flex-direction: row;
 
 }
 #navBar ul{
-  margin-left: 0vw;
-  bottom: 0px;
+  margin-left: -10px;
 
 }
-#logo{
-    margin-bottom: 5vh;
-}
-#ul_list{
 
-    position: absolute;
-    left: 0px;
-    bottom:0px;
-    
-}
 
-#navBar ul li {
-    font-size:.6rem;
+#navBar ul  {
+    font-size:1.6rem;
     padding:0px;
 }
 
 
 #log a{
     /* padding:0px; */
-    font-size: .6rem;
+    font-size: 1.6rem;
 }
 #log{
-    margin-left: 0px;
+    /* margin-left: 0px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; */
+    
 
 
 }
@@ -43,31 +33,31 @@
 
 
 #home p{
-    font-size:1rem;
+    font-size:1.5rem;
     width: 90vw;
    /* margin-left: -15px; */
 }
 #home h1{
-    font-size: 1.6rem;
+    font-size: 2.6rem;
     width:50vw;
     margin-top:10vh;
 }
 #home button{
-    font-size:1rem;
-    margin-top: 10vh;
+    font-size:1.8rem;
+    margin-top: 6vh;
 }
 
 /* services section  */
 
 #services-container h1{
-    font-size: 1.4rem;
+    font-size: 2.4rem;
 }
 #services{
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #services .box h2{
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 
@@ -77,22 +67,30 @@
 }
 
 
+
 /* clients section */
+
+#client-section::before {
+   
+    height: 70%;
+   
+}
+
 #clients{
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 6vh;
     /* padding:0; */
 }
 .client-item {
-       padding: 0 10px 0 0;
+       padding: 0 8vw 0 0;
 }
 
 #clients img {
-    width: 60px;
-    height: 80px;
+    width: 11vw;
+    height: 11vh;
 }
 #client-section h1{
-    font-size: 1.4rem;
+    font-size: 2.4rem;
 }
 
 
@@ -100,29 +98,28 @@
 
 /* contact us section  */
 .h-primary {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     
 }
 #contact {
     position: relative;
-    margin-top: 112px;
+    margin-top: 4vh;
 }
 #contact-box {
     display: flex;
     align-items: center;
     justify-content: left;
-    padding: 23px;
-    height:65vh;
+    padding: 2rem;
 }
 
 #contact-box label {
-    font-size: 1.1rem;
+    font-size: 2rem;
     
 }
 
 #contact-box input {
    width:auto;
-    font-size: 1rem;
+    font-size: 1.8rem;
     padding: 0.2rem;
 }
 #contact-box textarea {
@@ -136,12 +133,14 @@
 /* footer  */
 
 footer {
-    height: 35px;
-    margin-top: 33px;
+    height: 5vh;
+    margin-top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-
 /* utility classes */

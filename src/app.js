@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require("mongoose");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 var path = require('path');
 var bodyParser = require('body-parser');  
 require("./conn");
@@ -58,8 +58,38 @@ app.get('/menu', (req,res) => {
 
 app.get('/record',async (req,res) => {
 
-  const rec = await Menu.find();
-  res.status(201).json(rec);
+  //const rec = await Menu.find();
+  //res.status(201).json(rec);
+
+  const rec=[
+    {
+      name:"pizza"
+    },
+    {
+        name:"parantha"
+    }
+  ];
+  
+  
+
+
+    const token = req.cookies.jwt;
+
+  if(token){
+    const verifyuser = jwt.verify(token, process.env.SECRET_KEY);
+
+    const user = await Login.findOne({ _id: verifyuser._id, "tokens.token": token });
+    if(user){
+
+      const menu= await Menu.find({"email" : user.email});
+
+      res.status(201).json(menu);
+    }else{
+      res.status(201).json(rec);
+    }
+
+  }
+
 });
 
 // app.post("/login",async(req,res) => {
@@ -73,17 +103,48 @@ app.post('/clicked',bodyParser.urlencoded({ extended: false }) ,async (req, res)
 
   try {
 
-  var new_item= Menu(
-    req.body
-  );
-  const userExist = await Menu.findOne({name:req.body.name});
 
-  if(!userExist)
-  {
-    const result = await new_item.save();
-    console.log(result);
-  }else
-  console.log(`${req.body.name} already exists`);
+    const token = req.cookies.jwt;
+    if (token) {
+        
+      const verifyuser = jwt.verify(token, process.env.SECRET_KEY);
+
+      const user = await Login.findOne({ _id: verifyuser._id, "tokens.token": token });
+      console.log("loged in " + user);
+      if(user){
+        var obj={
+          name:req.body.name,
+          email:user.email
+        };
+
+        var new_item=Menu(obj);
+        const userExist = await Menu.findOne({ name: req.body.name ,email:user.email});
+        if (!userExist) {
+
+          const result = await new_item.save();
+          console.log(result);
+        } else
+          console.log(`${req.body.name} already exists`);
+      }
+
+    }else{
+
+
+
+      // var new_item = Menu(
+      //   req.body
+      // );
+      // const userExist = await Menu.findOne({ name: req.body.name });
+
+      // if (!userExist) {
+      //   const result = await new_item.save();
+      //   console.log(result);
+      // } else
+      //   console.log(`${req.body.name} already exists`);
+
+    }
+
+ 
 
     res.status(201).send("success");
  

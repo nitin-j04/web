@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet"  media="screen and (max-width:1000px)" href="menu0.css">
+    <link rel="stylesheet" media="screen and (max-width:590px)" href="menu1.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -30,7 +32,7 @@
             </ul>
         </nav>
         <div class="container">
-            <h1 class="menu_head" style="background-color: black;color:white;width:40%">Your Menu</h1>
+            <h1 id="menu_head" >Your Menu</h1>
             <ul id="menu_items">
                 <li class="item"><a href="#" onclick="removeCategory(this)" ><i class="far fa-times-circle"></i></a><a href=""> Butter masala</a><a href="#" onclick="addFav(this)" ><i class="fad fa-star "></i></a></li>
                 <li class="item"><a href="#" onclick="removeCategory(this)"><i class="far fa-times-circle"></i></a><a href="">Egg Parantha  </a><a href="#" onclick="addFav(this)"><i class="fad fa-star"></i></a></li>
@@ -38,17 +40,22 @@
                 <li class="item"><a href="#" onclick="removeCategory(this)"><i class="far fa-times-circle"></i></a><a href="">Egg Roll      </a><a href="#" onclick="addFav(this)"><i class="fad fa-star"></i></a></li>
                 <li class="item"><a href="#" onclick="removeCategory(this)"><i class="far fa-times-circle"></i></a><a href="">Masala Dos    </a><a href="#" onclick="addFav(this)"><i class="fad fa-star"></i></a></li>
             </ul>
-           
-            <input type="text" name="ad_item" id="add_item" placeholder="Enter item name to ADD">
-            <button id="myButton">Add</button>
+           <div id="search">
+                    <input type="text" name="ad_item" id="add_item" placeholder="Enter item name to ADD">
+                    <button id="myButton">Add</button>
+           </div>
+       
             
             <div id="fav">
-                <h1 style="background-color: black;color:white;">Order List</h1>
+                <h1 >Order List</h1>
                 <ul id="fav-items">
 
                 </ul>
             </div>
+            <div id="place_order">
+
             <a href="/" onclick="placeOrder()" id="place">Place Order</a>
+            </div>
           
         </div>
         <footer>

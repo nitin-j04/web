@@ -1,6 +1,44 @@
 // const  json  = require("express");
 
 
+
+
+
+
+// const preloadFunc=async () => {
+//   alert("PreLoad");
+
+//   const token = req.cookies.jwt;
+
+//   if(token){
+//     const verifyuser = jwt.verify(token, process.env.SECRET_KEY);
+
+//     const user = await Login.findOne({ _id: verifyuser._id, "tokens.token": token });
+//     if(user){
+
+//       const menu= await Menu.find({"email" : user.email});
+//         document.getElementById("menu_items").innerHTML="";
+
+//       var ul = document.getElementById("menu_items");
+      
+
+//       menu.forEach(function(ele){
+
+//         var item=ele.email;
+//         var li = document.createElement("li");
+//         li.innerHTML = `<a href="#" onclick="removeCategory(this)" ><i class="far fa-times-circle"></i></a><a href="#">${item}</i></a><a href="#" onclick="addFav(this)" ><i class="fad fa-star"></i></a>`;
+//         ul.appendChild(li);
+
+//       });
+//     }
+//   }
+
+// }
+// window.onpaint = preloadFunc();
+
+
+
+
 const removeCategory =async(elem) => {
   
   const name = {name : `${elem.parentNode.textContent}`};
@@ -15,7 +53,7 @@ const removeFav =async(elem) => {
   const name = {name : `${elem.parentNode.textContent}`};
   const result = await elem.parentNode.remove();
   alert(`Are you sure to remove ${name.name}`);
-  // const rest=await fetch(`/deletemenu/${name.name}`, {method: 'DELETE' ,body : JSON.stringify(name) , headers: { 'Content-Type': 'application/json' }});
+   const rest=await fetch(`/deletemenu/${name.name}`, {method: 'DELETE' ,body : JSON.stringify(name) , headers: { 'Content-Type': 'application/json' }});
   // console.log(rest);
 }
 
@@ -84,7 +122,7 @@ setInterval(async ( ) =>{
 
   if (result.ok) {
     const jsonData = await result.json();
-    console.log(jsonData);
+   // console.log(jsonData);
 
     var ul = document.getElementById("menu_items");
     
@@ -123,7 +161,7 @@ setInterval(async ( ) =>{
     throw Error(result.statusText);
   }
  
- },10000);
+ },1000);
 
 }
 
